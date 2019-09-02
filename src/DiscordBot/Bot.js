@@ -24,7 +24,8 @@ class Bot {
   _eventHandler(bot, reject) {
     let start = new Date().getTime()
     bot.on('ready', () => {
-      console.log(`Bloop took: ${new Date().getTime() - start} MS`)
+      bot.user.setActivity(`${bot.guilds} servers`, { type: "WATCHING"});
+      console.log(`Ready to serve on ${bot.guilds.size} servers, for ${bot.users.size} users.`);
     })
 
     bot.on('error', err => {
